@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junta de Vecinos San Pedro I y II – Valle Grande, Lampa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1a5c2e;
+    --verde-claro: #2e8b57;
+    --dorado: #c9a84c;
+    --crema: #f9f5ec;
+    --gris: #f0ede6;
+    --texto: #2a2a2a;
+    --blanco: #ffffff;
+    --sombra: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--crema);
+    color: var(--texto);
+    scroll-behavior: smooth;
+  }
+
+  /* ──────── NAVBAR ──────── */
+  nav {
+    background: var(--verde);
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 0;
+  }
+
+  .nav-logo .escudo {
+    width: 54px; height: 54px;
+    background: var(--dorado);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 0 0 3px #fff2;
+    flex-shrink: 0;
+  }
+
+  .nav-logo div h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; color: #fff; line-height: 1.2;
+  }
+  .nav-logo div span { font-size: 11px; color: #b8d4c0; letter-spacing: 0.04em; }
+
+  .nav-links {
+    display: flex; gap: 6px; list-style: none;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: #d4f0dc; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+    padding: 8px 14px; border-radius: 6px;
+    transition: all .2s;
+    letter-spacing: 0.03em;
+  }
+  .nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+  /* ──────── HERO ──────── */
+  .hero {
+    background: linear-gradient(135deg, #0d3d1e 0%, #1a5c2e 50%, #2e8b57 100%);
+    min-height: 520px;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 60px 40px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-content { position: relative; max-width: 600px; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--dorado);
+    color: #fff; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px; color: #fff; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    color: #b8d4c0; font-size: 17px; line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--dorado); color: #fff;
+    border: none; padding: 14px 28px; border-radius: 10px;
+    font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all .2s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: #b8913a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+  .btn-outline {
+    background: transparent; color: #fff;
+    border: 2px solid rgba(255,255,255,0.4);
+    padding: 14px 28px; border-radius: 10px;
+    font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: all .2s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  .hero-stats {
+    position: absolute; right: 40px; bottom: 40px;
+    display: flex; gap: 30px;
+  }
+  .stat { text-align: center; }
+  .stat .num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--dorado); font-weight: 700; }
+  .stat .label { font-size: 11px; color: #b8d4c0; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ──────── SECCIONES GENERALES ──────── */
+  section { padding: 70px 40px; }
+  .section-header { text-align: center; margin-bottom: 50px; }
+  .section-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--verde-claro); margin-bottom: 10px;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px; color: var(--verde); margin-bottom: 12px;
+  }
+  .section-header p { color: #666; font-size: 16px; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+  /* ──────── CERTIFICADO SECTION ──────── */
+  #certificado { background: var(--blanco); }
+
+  .cert-container {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 50px; max-width: 1100px; margin: 0 auto;
+    align-items: start;
+  }
+
+  .cert-form { }
+  .cert-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--verde);
+    margin-bottom: 24px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--gris);
+  }
+
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-size: 13px; font-weight: 700;
+    color: #444; margin-bottom: 6px; letter-spacing: 0.03em;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #ddd; border-radius: 8px;
+    font-family: 'Nunito', sans-serif; font-size: 14px;
+    background: var(--crema); color: var(--texto);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--verde-claro);
+    background: #fff;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .btn-generar {
+    width: 100%; background: var(--verde);
+    color: #fff; border: none; padding: 15px;
+    border-radius: 10px; font-family: 'Nunito', sans-serif;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: all .2s; margin-top: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .btn-generar:hover { background: var(--verde-claro); transform: translateY(-2px); }
+
+  .btn-imprimir {
+    width: 100%; background: var(--dorado);
+    color: #fff; border: none; padding: 13px;
+    border-radius: 10px; font-family: 'Nunito', sans-serif;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: all .2s; margin-top: 10px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .btn-imprimir:hover { background: #b8913a; }
+
+  /* ──────── CERTIFICADO PREVIEW ──────── */
+  .cert-preview-wrap { }
+  .cert-preview-wrap h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--verde);
+    margin-bottom: 24px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--gris);
+  }
+
+  #cert-doc {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 32px 36px;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: var(--sombra);
+    position: relative;
+    min-height: 460px;
+  }
+
+  .cert-header-row {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .cert-logo-block {
+    display: flex; align-items: center; gap: 10px;
+    flex-direction: column; text-align: center;
+  }
+
+  .cert-logo-svg {
+    width: 64px; height: 64px;
+  }
+
+  .cert-logo-block span {
+    font-size: 9px; font-family: Arial, sans-serif;
+    font-weight: 700; color: #1a5c2e;
+    text-transform: uppercase; line-height: 1.3;
+    max-width: 70px; text-align: center;
+  }
+
+  .cert-title-block { text-align: center; flex: 1; }
+  .cert-title-block h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 20px; font-weight: 700;
+    color: #1a3d6e; letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .cert-folio {
+    font-size: 13px; font-weight: 700; color: #1a3d6e;
+    margin-top: 6px;
+  }
+
+  .cert-line { border-top: 1.5px solid #1a3d6e; margin: 12px 0; }
+  .cert-body { font-size: 13px; line-height: 1.9; text-align: justify; }
+  .cert-body strong { font-weight: 700; }
+  .cert-field { border-bottom: 1px solid #333; min-width: 160px; display: inline-block; text-align: center; font-weight: 700; }
+
+  .cert-fecha { margin-top: 24px; font-size: 13px; }
+
+  .cert-footer {
+    display: flex; justify-content: flex-end;
+    margin-top: 14px; position: relative;
+  }
+
+  .cert-firma-block { text-align: center; position: relative; }
+
+  /* Firma SVG */
+  .firma-svg { width: 130px; height: 55px; }
+
+  /* Timbre circular */
+  .timbre {
+    width: 110px; height: 110px;
+    position: absolute;
+    right: -10px; bottom: -10px;
+    opacity: 0.82;
+  }
+
+  .cert-firma-texto {
+    font-size: 10px; font-weight: 700;
+    color: #1a3d6e; line-height: 1.4;
+    border-top: 1px solid #333;
+    padding-top: 6px; margin-top: 2px;
+  }
+
+  /* ──────── NOTICIAS ──────── */
+  #noticias { background: var(--gris); }
+  .news-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px; max-width: 1100px; margin: 0 auto;
+  }
+  .news-card {
+    background: #fff; border-radius: 14px;
+    overflow: hidden; box-shadow: var(--sombra);
+    transition: transform .2s;
+  }
+  .news-card:hover { transform: translateY(-4px); }
+  .news-img {
+    height: 170px;
+    background: linear-gradient(135deg, #1a5c2e, #2e8b57);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px;
+  }
+  .news-body { padding: 20px; }
+  .news-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--verde-claro);
+    margin-bottom: 6px;
+  }
+  .news-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--verde);
+    margin-bottom: 8px; line-height: 1.35;
+  }
+  .news-body p { font-size: 13px; color: #666; line-height: 1.65; }
+  .news-date { font-size: 11px; color: #aaa; margin-top: 12px; }
+
+  /* ──────── SERVICIOS ──────── */
+  #servicios { background: var(--blanco); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; max-width: 1100px; margin: 0 auto;
+  }
+  .service-card {
+    background: var(--crema); border-radius: 14px;
+    padding: 30px 24px; text-align: center;
+    border: 1.5px solid #e8e2d4;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .service-card:hover {
+    background: var(--verde); color: #fff;
+    transform: translateY(-4px); border-color: var(--verde);
+  }
+  .service-card:hover h3, .service-card:hover p { color: #fff; }
+  .service-icon { font-size: 40px; margin-bottom: 16px; }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--verde);
+    margin-bottom: 8px;
+  }
+  .service-card p { font-size: 13px; color: #666; line-height: 1.6; }
+
+  /* ──────── BARRIO / SECTOR ──────── */
+  #barrio { background: var(--verde); }
+  #barrio .section-header h2 { color: #fff; }
+  #barrio .section-header p { color: #b8d4c0; }
+  #barrio .section-tag { color: var(--dorado); }
+
+  .barrio-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px; max-width: 1100px; margin: 0 auto;
+    align-items: center;
+  }
+  .barrio-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: #fff; margin-bottom: 16px;
+  }
+  .barrio-info p { color: #b8d4c0; font-size: 15px; line-height: 1.8; margin-bottom: 20px; }
+
+  .barrio-features { display: flex; flex-direction: column; gap: 14px; }
+  .barrio-feat {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.08); border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .barrio-feat .icon { font-size: 24px; }
+  .barrio-feat div strong { color: #fff; font-size: 14px; display: block; }
+  .barrio-feat div span { color: #8fc4a0; font-size: 12px; }
+
+  .barrio-imgs {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .barrio-img-card {
+    border-radius: 12px; overflow: hidden;
+    height: 140px;
+    background: linear-gradient(135deg, #0d3d1e, #2e8b57);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 16px;
+    transition: transform .2s;
+  }
+  .barrio-img-card:hover { transform: scale(1.03); }
+  .barrio-img-card span { font-size: 36px; margin-bottom: 8px; }
+  .barrio-img-card p { color: #b8d4c0; font-size: 12px; font-weight: 600; }
+
+  /* ──────── DIRECTIVA ──────── */
+  #directiva { background: var(--gris); }
+  .directiva-grid {
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+  }
+  .directiva-card {
+    background: #fff; border-radius: 14px;
+    padding: 28px 24px; text-align: center;
+    box-shadow: var(--sombra); width: 200px;
+    transition: transform .2s;
+  }
+  .directiva-card:hover { transform: translateY(-4px); }
+  .directiva-avatar {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+    margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; color: #fff;
+    box-shadow: 0 4px 14px rgba(26,92,46,0.3);
+  }
+  .directiva-card h3 { font-size: 15px; font-weight: 700; color: var(--texto); margin-bottom: 4px; }
+  .directiva-card span { font-size: 12px; color: var(--verde-claro); font-weight: 600; }
+
+  /* ──────── CONTACTO ──────── */
+  #contacto { background: var(--blanco); }
+  .contacto-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 50px; max-width: 960px; margin: 0 auto;
+  }
+  .contacto-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--verde); margin-bottom: 20px;
+  }
+  .contacto-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .contacto-item .ic {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--crema); display: flex; align-items: center;
+    justify-content: center; font-size: 18px; flex-shrink: 0;
+    border: 1.5px solid #e8e2d4;
+  }
+  .contacto-item div strong { display: block; font-size: 13px; color: var(--verde); margin-bottom: 2px; }
+  .contacto-item div span { font-size: 13px; color: #666; }
+
+  .horario-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+  .horario-table td { padding: 6px 0; font-size: 13px; border-bottom: 1px solid #eee; }
+  .horario-table td:last-child { text-align: right; color: var(--verde-claro); font-weight: 600; }
+
+  .contacto-form-card {
+    background: var(--crema); border-radius: 16px;
+    padding: 30px; border: 1.5px solid #e8e2d4;
+  }
+  .contacto-form-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: var(--verde); margin-bottom: 20px;
+  }
+
+  /* ──────── FOOTER ──────── */
+  footer {
+    background: #0d3d1e; color: #8fc4a0;
+    padding: 40px; text-align: center;
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; color: #fff; margin-bottom: 10px;
+  }
+  footer p { font-size: 13px; line-height: 1.8; }
+  footer a { color: var(--dorado); text-decoration: none; }
+
+  /* ──────── PRINT STYLES ──────── */
+  @media print {
+    body * { visibility: hidden !important; }
+    #cert-doc, #cert-doc * { visibility: visible !important; }
+    #cert-doc {
+      position: fixed !important; top: 20mm !important;
+      left: 20mm !important; right: 20mm !important;
+      box-shadow: none !important; border: 1px solid #999 !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .hero { padding: 40px 20px; }
+    .hero h2 { font-size: 30px; }
+    .hero-stats { display: none; }
+    section { padding: 50px 20px; }
+    .cert-container { grid-template-columns: 1fr; }
+    .barrio-grid { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    #cert-doc { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <div class="escudo">🏘️</div>
+    <div>
+      <h1>Junta de Vecinos<br>San Pedro I y II</h1>
+      <span>Valle Grande · Lampa · Santiago</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#certificado">Certificados</a></li>
+    <li><a href="#noticias">Noticias</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#barrio">Nuestro Barrio</a></li>
+    <li><a href="#directiva">Directiva</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-badge">🌿 Comunidad San Pedro · Lampa</div>
+    <h2>Sirviendo a nuestra<br>comunidad con orgullo</h2>
+    <p>La Junta de Vecinos San Pedro I y II, Rut 65.272.285-7, Personalidad Jurídica N° 388.639 de la comuna de Lampa, trabaja por el bienestar de todos los vecinos de Valle Grande.</p>
+    <div class="hero-btns">
+      <a href="#certificado" class="btn-primary">📄 Obtener Certificado</a>
+      <a href="#servicios" class="btn-outline">Ver Servicios</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">500+</div><div class="label">Vecinos</div></div>
+    <div class="stat"><div class="num">5+</div><div class="label">Años</div></div>
+    <div class="stat"><div class="num">24h</div><div class="label">Trámites online</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CERTIFICADO ═══════════════ -->
+<section id="certificado">
+  <div class="section-header">
+    <div class="section-tag">Trámite Online</div>
+    <h2>Certificado de Residencia</h2>
+    <p>Genera tu certificado de residencia en línea, con firma y timbre oficial de la Junta de Vecinos San Pedro I y II.</p>
+  </div>
+
+  <div class="cert-container">
+    <!-- FORMULARIO -->
+    <div class="cert-form">
+      <h3>📋 Datos del Solicitante</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombres</label>
+          <input type="text" id="f-nombres" placeholder="Ej: Branco Mauricio" oninput="actualizarCert()">
+        </div>
+        <div class="form-group">
+          <label>Apellidos</label>
+          <input type="text" id="f-apellidos" placeholder="Ej: Sandoval Palma" oninput="actualizarCert()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>RUT</label>
+        <input type="text" id="f-rut" placeholder="Ej: 18.151.247-4" oninput="actualizarCert()">
+      </div>
+
+      <div class="form-group">
+        <label>Dirección (calle y número)</label>
+        <input type="text" id="f-direccion" placeholder="Ej: Cerro Azada #1827" oninput="actualizarCert()">
+      </div>
+
+      <div class="form-group">
+        <label>Sector / Villa</label>
+        <input type="text" id="f-sector" placeholder="Ej: San Pedro I" oninput="actualizarCert()">
+      </div>
+
+      <div class="form-group">
+        <label>Motivo / Finalidad del certificado</label>
+        <input type="text" id="f-motivo" placeholder="Ej: Fines que estime conveniente" oninput="actualizarCert()">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>N° Folio</label>
+          <input type="text" id="f-folio" value="012" oninput="actualizarCert()">
+        </div>
+        <div class="form-group">
+          <label>Fecha del certificado</label>
+          <input type="date" id="f-fecha" oninput="actualizarCert()">
+        </div>
+      </div>
+
+      <button class="btn-generar" onclick="actualizarCert()">
+        ✅ Generar Certificado
+      </button>
+      <button class="btn-imprimir" onclick="window.print()">
+        🖨️ Imprimir / Guardar PDF
+      </button>
+    </div>
+
+    <!-- PREVIEW CERTIFICADO -->
+    <div class="cert-preview-wrap">
+      <h3>👁️ Vista previa del certificado</h3>
+
+      <div id="cert-doc">
+
+        <!-- ENCABEZADO -->
+        <div class="cert-header-row">
+          <div class="cert-logo-block">
+            <!-- Logo SVG de la Junta -->
+            <svg class="cert-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="none" stroke="#1a5c2e" stroke-width="3"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+              <!-- Sol -->
+              <circle cx="50" cy="32" r="10" fill="#c9a84c"/>
+              <!-- Rayos del sol -->
+              <line x1="50" y1="16" x2="50" y2="12" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="62" y1="20" x2="65" y2="17" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="68" y1="32" x2="72" y2="32" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="38" y1="20" x2="35" y2="17" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="32" y1="32" x2="28" y2="32" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Montaña -->
+              <polygon points="20,75 50,48 80,75" fill="#8b1a1a"/>
+              <polygon points="35,75 50,56 65,75" fill="#a52a2a"/>
+              <!-- Base verde -->
+              <rect x="15" y="72" width="70" height="10" rx="2" fill="#1a5c2e"/>
+              <!-- Texto -->
+              <text x="50" y="92" text-anchor="middle" font-size="7" fill="#1a5c2e" font-family="Arial" font-weight="700">SAN PEDRO I Y II</text>
+            </svg>
+            <span>JUNTA DE VECINOS<br>SAN PEDRO I Y II</span>
+          </div>
+
+          <div class="cert-title-block">
+            <h2>CERTIFICADO DE RESIDENCIA</h2>
+            <div class="cert-folio">Folio N° <span id="c-folio">012</span></div>
+          </div>
+        </div>
+
+        <div class="cert-line"></div>
+
+        <div class="cert-body">
+          <p>
+            La Junta de Vecinos San Pedro I y II, Rut 65.272.285-7, con personalidad jurídica N° 388.639, de la comuna de Lampa.
+          </p>
+          <br>
+          <p>
+            Certifica que el Señor(a) <span class="cert-field" id="c-nombre">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>,
+            C.I. <span class="cert-field" id="c-rut">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>,
+            mantiene domicilio vigente en <span class="cert-field" id="c-dir">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>,
+            Lampa.
+          </p>
+          <br>
+          <p>
+            Se extiende el presente certificado a solicitud del interesado para
+            <span class="cert-field" id="c-motivo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>,
+            para los efectos de acreditar domicilio.
+          </p>
+        </div>
+
+        <div class="cert-fecha">
+          <span id="c-fecha">Santiago, ___ de __________ del 20__.-</span>
+        </div>
+
+        <div class="cert-footer">
+          <div class="cert-firma-block">
+            <!-- Firma SVG estilizada -->
+            <svg class="firma-svg" viewBox="0 0 200 70" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,55 C20,45 25,30 35,35 C42,39 38,50 48,45 C56,41 54,28 65,32 C74,36 70,50 82,44 C90,40 88,28 100,30 C110,32 108,48 120,42 C128,38 126,24 140,28 C150,31 148,46 162,40 C170,36 168,22 185,26" stroke="#0a3a7d" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M30,60 L95,60" stroke="#0a3a7d" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Timbre circular SVG -->
+            <svg class="timbre" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="75" cy="75" r="68" fill="none" stroke="#1a3d6e" stroke-width="3.5"/>
+              <circle cx="75" cy="75" r="60" fill="none" stroke="#1a3d6e" stroke-width="1.5"/>
+              <!-- Texto circular superior -->
+              <path id="topArc" d="M20,75 A55,55 0 0,1 130,75" fill="none"/>
+              <text font-size="9.5" fill="#1a3d6e" font-family="Arial" font-weight="700" letter-spacing="2">
+                <textPath href="#topArc" startOffset="8%">JUNTA DE VECINOS · SAN PEDRO I Y II ·</textPath>
+              </text>
+              <!-- Texto circular inferior -->
+              <path id="botArc" d="M22,85 A55,55 0 0,0 128,85" fill="none"/>
+              <text font-size="8.5" fill="#1a3d6e" font-family="Arial" font-weight="700" letter-spacing="2">
+                <textPath href="#botArc" startOffset="12%">LAMPA · SANTIAGO · CHILE</textPath>
+              </text>
+              <!-- Logo central pequeño -->
+              <circle cx="75" cy="72" r="18" fill="#1a5c2e" opacity="0.85"/>
+              <polygon points="60,84 75,62 90,84" fill="#8b1a1a"/>
+              <circle cx="75" cy="58" r="7" fill="#c9a84c"/>
+              <text x="75" y="98" text-anchor="middle" font-size="7" fill="#1a3d6e" font-family="Arial" font-weight="700">Pers. Jurídica</text>
+              <text x="75" y="108" text-anchor="middle" font-size="7" fill="#1a3d6e" font-family="Arial" font-weight="700">N° 388639</text>
+            </svg>
+
+            <div class="cert-firma-texto">
+              Junta de Vecinos<br>
+              San Pedro I y II<br>
+              Pers. Jurídica N° 388639<br>
+              <em>Timbre</em>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- #cert-doc -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ NOTICIAS ═══════════════ -->
+<section id="noticias">
+  <div class="section-header">
+    <div class="section-tag">Últimas Novedades</div>
+    <h2>Noticias del Barrio</h2>
+    <p>Mantente informado sobre las actividades, proyectos y novedades de nuestra comunidad.</p>
+  </div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-img">🌳</div>
+      <div class="news-body">
+        <div class="news-tag">Mejoras Urbanas</div>
+        <h3>Nuevas áreas verdes en Pasaje Cerro Azada</h3>
+        <p>La municipalidad de Lampa y nuestra junta de vecinos concretaron la instalación de juegos infantiles y bancas en el pasaje central del sector.</p>
+        <div class="news-date">📅 18 de Abril, 2026</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-img">💧</div>
+      <div class="news-body">
+        <div class="news-tag">Infraestructura</div>
+        <h3>Reparación de red de agua potable en sector San Pedro II</h3>
+        <p>Aguas Andinas coordina con la junta el cronograma de reparaciones para las semanas del 21 al 30 de abril. Se informará cortes programados.</p>
+        <div class="news-date">📅 14 de Abril, 2026</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-img">🎉</div>
+      <div class="news-body">
+        <div class="news-tag">Actividades</div>
+        <h3>Celebración Día del Niño – 25 de Mayo en la plaza San Pedro</h3>
+        <p>¡Todos los vecinos están invitados! Habrá show de títeres, pintacaritas, concursos y refrigerios para los niños del sector.</p>
+        <div class="news-date">📅 10 de Abril, 2026</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-img">🔒</div>
+      <div class="news-body">
+        <div class="news-tag">Seguridad</div>
+        <h3>Instalación de cámaras de videovigilancia en accesos</h3>
+        <p>En coordinación con Carabineros de Lampa, se instalaron 4 cámaras en los puntos de entrada al sector San Pedro I y II.</p>
+        <div class="news-date">📅 2 de Abril, 2026</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-img">🏥</div>
+      <div class="news-body">
+        <div class="news-tag">Salud</div>
+        <h3>Operativo de salud gratuito este sábado 26 de Abril</h3>
+        <p>El CESFAM Valle Grande realizará un operativo de toma de presión, glicemia, vacunación y atención dental en la sede de la junta de vecinos.</p>
+        <div class="news-date">📅 1 de Abril, 2026</div>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-img">🗳️</div>
+      <div class="news-body">
+        <div class="news-tag">Participación</div>
+        <h3>Asamblea general de vecinos – 30 de Abril, 19:00 hrs</h3>
+        <p>Se invita a todos los vecinos a participar de la asamblea mensual donde se presentará el balance de gastos y el plan de trabajo para mayo.</p>
+        <div class="news-date">📅 28 de Marzo, 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICIOS ═══════════════ -->
+<section id="servicios">
+  <div class="section-header">
+    <div class="section-tag">Lo que hacemos</div>
+    <h2>Nuestros Servicios</h2>
+    <p>La junta de vecinos San Pedro I y II ofrece múltiples servicios para mejorar la calidad de vida de nuestra comunidad.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" onclick="document.getElementById('certificado').scrollIntoView({behavior:'smooth'})">
+      <div class="service-icon">📄</div>
+      <h3>Certificado de Residencia</h3>
+      <p>Obtén tu certificado de domicilio en línea, con firma y timbre oficial, válido para trámites.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🗳️</div>
+      <h3>Asambleas Vecinales</h3>
+      <p>Participación en reuniones mensuales para toma de decisiones comunitarias y rendición de cuentas.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>Áreas Verdes</h3>
+      <p>Gestión y mantención de plazas, jardines y espacios comunitarios del sector San Pedro.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔒</div>
+      <h3>Seguridad Vecinal</h3>
+      <p>Coordinación con Carabineros para rondas y programas de vigilancia de nuestra comunidad.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏥</div>
+      <h3>Salud Comunitaria</h3>
+      <p>Organización de operativos de salud gratuitos y gestión de cupos en CESFAM Valle Grande.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎭</div>
+      <h3>Actividades Culturales</h3>
+      <p>Eventos para adultos mayores, jóvenes y niños: talleres, celebraciones y actividades deportivas.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛠️</div>
+      <h3>Gestión Municipal</h3>
+      <p>Tramitación de solicitudes ante la municipalidad de Lampa para mejoras en el barrio.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💡</div>
+      <h3>Alumbrado Público</h3>
+      <p>Reportes y seguimiento de fallas de iluminación en calles y pasajes del sector.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ NUESTRO BARRIO ═══════════════ -->
+<section id="barrio">
+  <div class="section-header">
+    <div class="section-tag">Valle Grande · Lampa</div>
+    <h2>Nuestro Sector</h2>
+    <p>San Pedro I y II forma parte de Valle Grande, una de las ciudades planificadas más modernas de la Región Metropolitana.</p>
+  </div>
+  <div class="barrio-grid">
+    <div class="barrio-info">
+      <h3>Vivir en Valle Grande, Lampa</h3>
+      <p>
+        Ubicada a solo 16 km al norte del centro de Santiago, Valle Grande es una ciudad planificada con más de 900 hectáreas, diseñada para más de 25.000 viviendas. El proyecto Casas San Pedro, ubicado en Río Maullín 3485, ofrece casas de 1 y 3 pisos con amplios terrenos de 141 m² a 213 m², en un sector tranquilo y residencial.
+      </p>
+      <p>
+        Nuestro barrio combina vida de barrio, contacto con la naturaleza y conectividad con todo Santiago a través de la Ruta 5 Norte.
+      </p>
+      <div class="barrio-features">
+        <div class="barrio-feat">
+          <span class="icon">🏫</span>
+          <div><strong>Colegios y educación</strong><span>Acceso a establecimientos a metros del barrio</span></div>
+        </div>
+        <div class="barrio-feat">
+          <span class="icon">🛒</span>
+          <div><strong>Supermercados y comercio</strong><span>Equipamiento comercial completo en Valle Grande</span></div>
+        </div>
+        <div class="barrio-feat">
+          <span class="icon">⚽</span>
+          <div><strong>Centros deportivos</strong><span>Canchas, multicancha y ciclovías en el sector</span></div>
+        </div>
+        <div class="barrio-feat">
+          <span class="icon">🚌</span>
+          <div><strong>Transporte público</strong><span>Conectividad con Santiago a 16 km</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="barrio-imgs">
+      <div class="barrio-img-card">
+        <span>🏘️</span>
+        <p>Casas San Pedro<br>Valle Grande</p>
+      </div>
+      <div class="barrio-img-card">
+        <span>🌄</span>
+        <p>Entorno Natural<br>Lampa</p>
+      </div>
+      <div class="barrio-img-card">
+        <span>🛝</span>
+        <p>Plazas y Áreas<br>Verdes</p>
+      </div>
+      <div class="barrio-img-card">
+        <span>🌆</span>
+        <p>Ciudad Planificada<br>900+ Hectáreas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DIRECTIVA ═══════════════ -->
+<section id="directiva">
+  <div class="section-header">
+    <div class="section-tag">Quiénes somos</div>
+    <h2>Directiva Vigente 2024–2026</h2>
+    <p>Conoce a los representantes elegidos por los vecinos para liderar nuestra junta de vecinos.</p>
+  </div>
+  <div class="directiva-grid">
+    <div class="directiva-card">
+      <div class="directiva-avatar">👩‍💼</div>
+      <h3>María González R.</h3>
+      <span>Presidenta</span>
+    </div>
+    <div class="directiva-card">
+      <div class="directiva-avatar">👨‍💼</div>
+      <h3>Carlos Muñoz P.</h3>
+      <span>Vicepresidente</span>
+    </div>
+    <div class="directiva-card">
+      <div class="directiva-avatar">👩‍💼</div>
+      <h3>Ana Flores S.</h3>
+      <span>Secretaria</span>
+    </div>
+    <div class="directiva-card">
+      <div class="directiva-avatar">👨‍💼</div>
+      <h3>Pedro Rivas M.</h3>
+      <span>Tesorero</span>
+    </div>
+    <div class="directiva-card">
+      <div class="directiva-avatar">👩‍💼</div>
+      <h3>Rosa Soto L.</h3>
+      <span>Directora</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACTO ═══════════════ -->
+<section id="contacto">
+  <div class="section-header">
+    <div class="section-tag">Estamos para ayudarte</div>
+    <h2>Contacto</h2>
+    <p>¿Tienes dudas o necesitas apoyo? Comunícate con nuestra junta de vecinos.</p>
+  </div>
+  <div class="contacto-grid">
+    <div class="contacto-info">
+      <h3>Información de contacto</h3>
+      <div class="contacto-item">
+        <div class="ic">📍</div>
+        <div><strong>Dirección</strong><span>Cerro Azada s/n, San Pedro I y II<br>Valle Grande, Lampa, Santiago</span></div>
+      </div>
+      <div class="contacto-item">
+        <div class="ic">📞</div>
+        <div><strong>Teléfono</strong><span>+56 9 XXXX XXXX</span></div>
+      </div>
+      <div class="contacto-item">
+        <div class="ic">✉️</div>
+        <div><strong>Correo electrónico</strong><span>juntavecinos.sanpedro@gmail.com</span></div>
+      </div>
+      <div class="contacto-item">
+        <div class="ic">📘</div>
+        <div><strong>Facebook</strong><span>Junta de Vecinos San Pedro I y II</span></div>
+      </div>
+
+      <h3 style="margin-top:28px; font-family:'Playfair Display',serif; font-size:18px; color:var(--verde); margin-bottom:14px;">Horarios de atención</h3>
+      <table class="horario-table">
+        <tr><td>Lunes – Viernes</td><td>09:00 – 13:00 / 15:00 – 18:00</td></tr>
+        <tr><td>Sábado</td><td>10:00 – 13:00</td></tr>
+        <tr><td>Domingo</td><td>Cerrado</td></tr>
+      </table>
+    </div>
+
+    <div class="contacto-form-card">
+      <h3>Envíanos un mensaje</h3>
+      <div class="form-group">
+        <label>Tu nombre</label>
+        <input type="text" placeholder="Nombre completo">
+      </div>
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input type="email" placeholder="ejemplo@correo.cl">
+      </div>
+      <div class="form-group">
+        <label>Asunto</label>
+        <input type="text" placeholder="¿En qué te podemos ayudar?">
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea rows="4" style="resize:vertical" placeholder="Escribe tu mensaje aquí..."></textarea>
+      </div>
+      <button class="btn-generar" onclick="alert('¡Mensaje enviado! Nos contactaremos contigo pronto.')">
+        📨 Enviar Mensaje
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Junta de Vecinos San Pedro I y II</div>
+  <p>
+    Rut 65.272.285-7 · Personalidad Jurídica N° 388.639<br>
+    Valle Grande, Lampa, Región Metropolitana de Santiago<br>
+    <br>
+    <a href="#inicio">Inicio</a> · <a href="#certificado">Certificado</a> · <a href="#noticias">Noticias</a> · <a href="#contacto">Contacto</a>
+  </p>
+  <p style="margin-top:20px; font-size:11px; color:#4a7a5a;">© 2026 Junta de Vecinos San Pedro I y II · Todos los derechos reservados</p>
+</footer>
+
+<script>
+  // Establecer fecha de hoy por defecto
+  const hoy = new Date();
+  document.getElementById('f-fecha').value = hoy.toISOString().split('T')[0];
+  actualizarCert(); // inicializar vista previa
+
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+  function actualizarCert() {
+    const nombres   = document.getElementById('f-nombres').value.trim();
+    const apellidos = document.getElementById('f-apellidos').value.trim();
+    const rut       = document.getElementById('f-rut').value.trim();
+    const dir       = document.getElementById('f-direccion').value.trim();
+    const motivo    = document.getElementById('f-motivo').value.trim();
+    const folio     = document.getElementById('f-folio').value.trim();
+    const fechaVal  = document.getElementById('f-fecha').value;
+
+    const nombreCompleto = [nombres, apellidos].filter(Boolean).join(' ');
+
+    // Actualizar campos del certificado
+    setField('c-nombre', nombreCompleto || '________________________________');
+    setField('c-rut',    rut || '__________________');
+    setField('c-dir',    dir ? dir + ',-' : '________________________________');
+    setField('c-motivo', motivo || '________________________________');
+    document.getElementById('c-folio').textContent = folio || '___';
+
+    // Fecha
+    if (fechaVal) {
+      const d = new Date(fechaVal + 'T12:00:00');
+      const dia = d.getDate();
+      const mes = meses[d.getMonth()];
+      const anio = d.getFullYear().toString().slice(2);
+      document.getElementById('c-fecha').textContent =
+        `Santiago, ${dia} de ${mes} del 20${anio}.-`;
+    } else {
+      document.getElementById('c-fecha').textContent = 'Santiago, ___ de __________ del 20__.-';
+    }
+  }
+
+  function setField(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+</script>
+</body>
+</html>
